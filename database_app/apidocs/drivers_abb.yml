@@ -1,0 +1,41 @@
+Returns an information of a chosen driver
+The specification is taken from external YAML file
+---
+parameters:
+  - in: path
+    name: drivers_abb
+    required: true
+    type: string
+    default: 'BHS'
+    enum: [ 'BHS', 'CLS', 'CSR', 'DRR', 'EOF', 'FAM', 'KMH', 'KRF',
+            'LHM', 'LSW', 'MES', 'NHR', 'PGS', 'RGH', 'SPF', 'SSW',
+            'SVF', 'SVM', 'VBM']
+    description: Let you choose a driver
+  - in: query
+    name: format
+    required: true
+    type: string
+    default: 'json'
+    enum: ['json', 'xml']
+    description: Define outcome format - json or xml
+produces:
+  - application/json
+  - application/xml
+responses:
+  200:
+    description: Full logic
+    schema:
+      $ref: '#/definitions/DriversAbb'
+definitions:
+  DriversAbb:
+    type: object
+    properties:
+        car:
+          type: str
+          example: "SCUDERIA TORO ROSSO HONDA"
+        name:
+          type: str
+          example: "Brendon Hartley"
+        time:
+          type: str
+          example: "73.179"

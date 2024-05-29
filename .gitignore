@@ -1,0 +1,17 @@
+.idea
+.git
+
+/venv/
+
+/.__pycache__/
+/.pytest_cache/
+/database_app/logic/.__pycache__/
+/database_app/.__pycache__/
+/tests/.benchmarks/
+/tests/.pytest_cache/
+/tests/.coverage
+/tests/.__pycache__/
+/.coverage
+/.flaskenv
+
+/database_app/report.db

@@ -1,0 +1,18 @@
+Returns links for full logic and list of drivers
+The specification is taken from external YAML file
+---
+responses:
+  200:
+    description: Links for logic and drivers
+    schema:
+        $ref: '#/definitions/Response'
+definitions:
+  Response:
+    type: object
+    properties:
+      report:
+        type: string
+        example: "http://127.0.0.1:5000/api/v1/report/?order=asc&format=json"
+      drivers:
+        type: string
+        example: "http://127.0.0.1:5000/api/v1/report/drivers/?order=asc&format=json"

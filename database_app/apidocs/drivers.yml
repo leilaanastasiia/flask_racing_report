@@ -1,0 +1,39 @@
+Returns a summary of all drivers with a link for more info
+The specification is taken from external YAML file
+---
+parameters:
+  - in: query
+    name: order
+    required: true
+    type: string
+    default: 'asc'
+    enum: ['asc', 'desc']
+    description: Sort the list of drivers ascending or descending by alphabet
+  - in: query
+    name: format
+    required: true
+    type: string
+    default: 'json'
+    enum: ['json', 'xml']
+    description: Define outcome format - json or xml
+produces:
+  - application/json
+  - application/xml
+responses:
+  200:
+    description: Full drivers list
+    schema:
+      $ref: '#/definitions/Drivers'
+definitions:
+  Drivers:
+    type: object
+    properties:
+      number:
+        type: object
+        properties:
+            link:
+              type: str
+              example: "http://127.0.0.1:5000/api/v1/report/drivers/BHS/?format=json"
+            name:
+              type: str
+              example: "Brendon Hartley"

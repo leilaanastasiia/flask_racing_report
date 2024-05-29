@@ -1,0 +1,42 @@
+Returns an order of riders with full info about the race
+The specification is taken from external YAML file
+---
+parameters:
+  - in: query
+    name: order
+    required: true
+    type: string
+    default: 'asc'
+    enum: ['asc', 'desc']
+    description: Sort the logic ascending or descending by arriving time
+  - in: query
+    name: format
+    required: true
+    type: string
+    default: 'json'
+    enum: ['json', 'xml']
+    description: Define outcome format - json or xml
+produces:
+  - application/json
+  - application/xml
+responses:
+  200:
+    description: Full logic
+    schema:
+      $ref: '#/definitions/Report'
+definitions:
+  Report:
+    type: object
+    properties:
+      number:
+        type: object
+        properties:
+            car:
+              type: str
+              example: "FERRARI"
+            name:
+              type: str
+              example: "Sebastian Vettel"
+            time:
+              type: str
+              example: "64.415"
